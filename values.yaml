@@ -16,9 +16,9 @@ database:
     # The secret to load the database username and password from.
     secret:
     # The key containing the username in the secret.
-    usernameKey:
+    usernameKey: DB_USER
     # The key containing the password in the secret.
-    passwordKey:
+    passwordKey: DB_PASS
   # Database connection details
   connection:
     # The database vendor, e.g. postgres.
@@ -32,11 +32,11 @@ database:
     # Database connection pooling configuration
     poolingconfig:
       # The minimum size of the connection pool
-      poolMinSize: 1
+      poolMinSize:
       # The initial size of the connection pool
-      poolInitialSize: 1
+      poolInitialSize:
       # The max size of the connection pool
-      poolMaxSize: 1
+      poolMaxSize:
 
 # Image configuration
 image:
@@ -50,4 +50,14 @@ image:
 # How many instances of Keycloak to deploy
 instances: 1
 # What secret to use for TLS
-tlsSecret:
+tls:
+  # The name of the secret to use
+  secretName:
+  manageCert: false
+  issuerRef:
+    name:
+    kind:
+  duration: "30d"
+
+nameOverride:
+fullnameOverride:

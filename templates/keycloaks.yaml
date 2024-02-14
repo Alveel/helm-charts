@@ -7,16 +7,17 @@ metadata:
   annotations:
     meta.helm.sh/release-name: {{ $.Release.Name }}
     meta.helm.sh/release-namespace: {{ $.Release.Namespace }}
+  labels: {{ include "keycloak-deployment.labels" . | nindent 4 }}
   namespace: {{ $.Release.Namespace }}
 spec:
   hostname:
     {{- if .Values.hostname.admin }}
-    admin: .Values.hostname.admin
-    {{ end -}}
+    admin: {{ .Values.hostname.admin -}}
+    {{ end }}
     {{- if .Values.hostname.adminUrl }}
-    adminUrl: .Values.hostname.adminUrl
-    {{ end -}}
-    hostname: {{ .Values.hostname.hostname }}
+    adminUrl: {{ .Values.hostname.adminUrl -}}
+    {{ end }}
+    hostname: {{ required ".Values.hostname.hostname is required" .Values.hostname.hostname }}
   db:
     usernameSecret:
       name: {{ .Values.database.credentials.secret }}
@@ -29,11 +30,7 @@ spec:
     vendor: {{ .Values.database.connection.vendor }}
     host: {{ .Values.database.connection.host }}
     database: {{ .Values.database.name }}
-    {{ if .Values.database.connection.poolingconfig }}
-    poolMinSize: {{ .Values.database.connection.poolingconfig.poolMinSize }}
-    poolInitialSize: {{ .Values.database.connection.poolingconfig.poolInitialSize }}
-    poolMaxSize: {{ .Values.database.connection.poolingconfig.poolMaxSize }}
-    {{ end }}
+    {{- include "keycloak-deployment.poolingconfig" . | nindent 4 }}
   instances: {{ .Values.instances }}
-  tlsSecret: {{ .Values.tlsSecret }}
+  tlsSecret: {{ include "keycloak-deployment.secretName" . | required ".Values.tls.secretName is required!" }}
   image: "{{ .Values.image.repo }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
