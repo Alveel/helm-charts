@@ -9,11 +9,11 @@ metadata:
   annotations:
     meta.helm.sh/release-name: {{ $.Release.Name }}
     meta.helm.sh/release-namespace: {{ $.Release.Namespace }}
-  labels: {{ include "keycloak-deployment.labels" . | nindent 4 }}
+  labels: {{ include "keycloak.labels" . | nindent 4 }}
   namespace: {{ $.Release.Namespace }}
 spec:
-  dnsNames: {{ include "keycloak-deployment.dnsNames" . | nindent 4 }}
-  secretName: {{ include "keycloak-deployment.secretName" . }}
+  dnsNames: {{ include "keycloak.dnsNames" . | nindent 4 }}
+  secretName: {{ include "keycloak.secretName" . }}
   issuerRef:
     name: {{ .Values.tls.issuerRef.name | required "A valid issuerRef.name is required!" }}
     kind: {{ default "ClusterIssuer" .Values.tls.issuerRef.kind }}

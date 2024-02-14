@@ -1,5 +1,5 @@
 apiVersion: v2
-name: keycloak-deployment
+name: keycloak
 description: A chart for deploying a Keycloak instance using the Keycloak Operator
 
 # A chart can be either an 'application' or a 'library' chart.
