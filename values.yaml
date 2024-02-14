@@ -9,6 +9,8 @@ hostname:
 
 # Keycloak database configuration
 database:
+  # The name of the database
+  name:
   # Database credentials
   credentials:
     # The secret to load the database username and password from.
@@ -19,8 +21,6 @@ database:
     passwordKey:
   # Database connection details
   connection:
-    # The name of the database
-    database:
     # The database vendor, e.g. postgres.
     vendor: postgres
     # The schema for the database, e.g. postgresql

@@ -28,7 +28,7 @@ spec:
     schema: {{ .Values.database.connection.schema }}
     vendor: {{ .Values.database.connection.vendor }}
     host: {{ .Values.database.connection.host }}
-    database: {{ .Values.database.connection.database }}
+    database: {{ .Values.database.name }}
     {{ if .Values.database.connection.poolingconfig }}
     poolMinSize: {{ .Values.database.connection.poolingconfig.poolMinSize }}
     poolInitialSize: {{ .Values.database.connection.poolingconfig.poolInitialSize }}
