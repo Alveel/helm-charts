@@ -1,0 +1,180 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Keycloak deployment",
+    "description": "Keycloak deployment using Red Hat Keycloak operator",
+    "properties": {
+        "database": {
+            "properties": {
+                "connection": {
+                    "properties": {
+                        "host": {
+                            "type": "string"
+                        },
+                        "poolingconfig": {
+                            "properties": {
+                                "poolInitialSize": {
+                                    "type": [
+                                        "integer",
+                                        "null"
+                                    ]
+                                },
+                                "poolMaxSize": {
+                                    "type": [
+                                        "integer",
+                                        "null"
+                                    ]
+                                },
+                                "poolMinSize": {
+                                    "type": [
+                                        "integer",
+                                        "null"
+                                    ]
+                                }
+                            },
+                            "type": [
+                                "object",
+                                "null"
+                            ]
+                        },
+                        "port": {
+                            "type": "integer"
+                        },
+                        "schema": {
+                            "type": "string"
+                        },
+                        "vendor": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "vendor",
+                        "schema",
+                        "host",
+                        "port"
+                    ],
+                    "type": "object"
+                },
+                "credentials": {
+                    "properties": {
+                        "passwordKey": {
+                            "type": "string"
+                        },
+                        "secret": {
+                            "type": "string"
+                        },
+                        "usernameKey": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "secret",
+                        "usernameKey",
+                        "passwordKey"
+                    ],
+                    "type": "object"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "hostname": {
+            "properties": {
+                "admin": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "adminUrl": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "hostname": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "hostname"
+            ],
+            "type": "object"
+        },
+        "image": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "repo": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "instances": {
+            "type": "integer"
+        },
+        "tls": {
+            "properties": {
+                "secretName": {
+                    "type": "string"
+                },
+                "manageCert": {
+                    "type": "boolean"
+                },
+                "issuerRef": {
+                    "properties": {
+                        "name": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "kind": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    },
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "duration": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "manageCert"
+            ],
+            "type": "object"
+        },
+        "nameOverride": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "fullnameOverride": {
+            "type": [
+                "string",
+                "null"
+            ]
+        }
+    },
+    "required": [
+        "hostname",
+        "database",
+        "image",
+        "instances",
+        "tls"
+    ],
+    "type": "object"
+}
