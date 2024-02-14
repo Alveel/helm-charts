@@ -1,0 +1,39 @@
+---
+
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  name: {{ $.Release.Name }}-keycloak
+  annotations:
+    meta.helm.sh/release-name: {{ $.Release.Name }}
+    meta.helm.sh/release-namespace: {{ $.Release.Namespace }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  hostname:
+    {{- if .Values.hostname.admin }}
+    admin: .Values.hostname.admin
+    {{ end -}}
+    {{- if .Values.hostname.adminUrl }}
+    adminUrl: .Values.hostname.adminUrl
+    {{ end -}}
+    hostname: {{ .Values.hostname.hostname }}
+  db:
+    usernameSecret:
+      name: {{ .Values.database.credentials.secret }}
+      key: {{ .Values.database.credentials.usernameKey }}
+    passwordSecret:
+      name: {{ .Values.database.credentials.secret }}
+      key: {{ .Values.database.credentials.passwordKey }}
+    port: {{ .Values.database.connection.port }}
+    schema: {{ .Values.database.connection.schema }}
+    vendor: {{ .Values.database.connection.vendor }}
+    host: {{ .Values.database.connection.host }}
+    database: {{ .Values.database.connection.database }}
+    {{ if .Values.database.connection.poolingconfig }}
+    poolMinSize: {{ .Values.database.connection.poolingconfig.poolMinSize }}
+    poolInitialSize: {{ .Values.database.connection.poolingconfig.poolInitialSize }}
+    poolMaxSize: {{ .Values.database.connection.poolingconfig.poolMaxSize }}
+    {{ end }}
+  instances: {{ .Values.instances }}
+  tlsSecret: {{ .Values.tlsSecret }}
+  image: "{{ .Values.image.repo }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
