@@ -1,63 +1,68 @@
 # Keycloak hostname configuration
 hostname:
-  # The hostname for accessing the administration console.
+  # hostname.admin -- The hostname for accessing the administration console
   admin:
-  # The base URL for accessing the administration console, including scheme, host, port and path
+  # hostname.adminUrl -- The base URL for accessing the administration console, including scheme, host, port and path
   adminUrl:
-  # Hostname for the Keycloak server, required.
+  # hostname.hostname -- Hostname for the Keycloak server, required
   hostname:
 
 # Keycloak database configuration
 database:
-  # The name of the database
+  # database.name -- # The name of the database
   name:
+
   # Database credentials
   credentials:
-    # The secret to load the database username and password from.
+    # database.credentials.secret -- The secret to load the database username and password from
     secret:
-    # The key containing the username in the secret.
+    # database.credentials.usernameKey -- The key containing the username in the secret
     usernameKey: DB_USER
-    # The key containing the password in the secret.
+    # database.credentials.passwordKey -- The key containing the password in the secret
     passwordKey: DB_PASS
+
   # Database connection details
   connection:
-    # The database vendor, e.g. postgres.
+    # database.connection.vendor -- The database vendor, e.g. postgres
     vendor: postgres
-    # The schema for the database, e.g. postgresql
+    # database.connection.schema -- The database schema to be used
     schema: postgresql
-    # The host of the database server
+    # database.connection.host -- The host of the database server
     host:
-    # The port of the database server
+    # database.connection.port -- The port of the database server
     port: 5432
+
     # Database connection pooling configuration
     poolingconfig:
-      # The minimum size of the connection pool
+      # database.connection.poolingconfig.poolMinSize -- The minimum size of the connection pool
       poolMinSize:
-      # The initial size of the connection pool
+      # database.connection.poolingconfig.poolInitialSize -- The initial size of the connection pool
       poolInitialSize:
-      # The max size of the connection pool
+      # database.connection.poolingconfig.poolMaxSize -- The maximum size of the connection pool
       poolMaxSize:
 
 # Image configuration
 image:
-  # The name of the image
+  # image.name -- The name of the image
   name: keycloak/keycloak
-  # The image repository
+  # image.repo -- The image repository
   repo: quay.io
-  # The image tag
+  # image.tag -- The image tag
   tag: 22.0
 
-# How many instances of Keycloak to deploy
+# instances -- How many instances of Keycloak to deploy
 instances: 1
-# What secret to use for TLS
+
+# TLS configuration
 tls:
-  # The name of the secret to use
+  # tls.secretName -- The name of the secret to use
   secretName:
+  # tls.manageCert -- Whether to manage the cert using the cert-manager operator
   manageCert: false
   issuerRef:
+    # tls.issuerRef.name -- The name of the certificate issuer to use if manageCert is true
     name:
-    kind:
+    # tls.issuerRef.kind -- What kind of issuer to use
+    kind: ClusterIssuer
+  # tls.duration -- How long the certificate is valid if manageCert is true
   duration: "30d"
-
-nameOverride:
-fullnameOverride:
