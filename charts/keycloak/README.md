@@ -18,7 +18,7 @@ A chart for deploying a Keycloak instance using the Keycloak Operator
 | database.credentials.passwordKey | string | `"DB_PASS"` | The key containing the password in the secret |
 | database.credentials.secret | string | `nil` | The secret to load the database username and password from |
 | database.credentials.usernameKey | string | `"DB_USER"` | The key containing the username in the secret |
-| database.name | string | `nil` | # The name of the database |
+| database.name | string | `nil` | The name of the database |
 | hostname.admin | string | `nil` | The hostname for accessing the administration console |
 | hostname.adminUrl | string | `nil` | The base URL for accessing the administration console, including scheme, host, port and path |
 | hostname.hostname | string | `nil` | Hostname for the Keycloak server, required |

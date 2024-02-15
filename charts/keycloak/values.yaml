@@ -9,7 +9,7 @@ hostname:
 
 # Keycloak database configuration
 database:
-  # database.name -- # The name of the database
+  # database.name -- The name of the database
   name:
 
   # Database credentials
