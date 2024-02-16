@@ -7,6 +7,7 @@ kind: Certificate
 metadata:
   name: {{ $.Release.Name }}-keycloak
   annotations:
+    argocd.argoproj.io/sync-wave: "0"
     meta.helm.sh/release-name: {{ $.Release.Name }}
     meta.helm.sh/release-namespace: {{ $.Release.Namespace }}
   labels: {{ include "keycloak.labels" . | nindent 4 }}
