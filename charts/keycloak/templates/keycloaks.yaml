@@ -31,7 +31,8 @@ spec:
     vendor: {{ .Values.database.connection.vendor }}
     host: {{ .Values.database.connection.host }}
     database: {{ .Values.database.name }}
-    {{- include "keycloak.poolingconfig" . | nindent 4 }}
+    {{- include "keycloak.poolingconfig" . | nindent 4 -}}
   instances: {{ .Values.instances }}
-  tlsSecret: {{ include "keycloak.secretName" . | required ".Values.tls.secretName is required!" }}
+  http:
+    tlsSecret: {{ include "keycloak.secretName" . | required ".Values.tls.secretName is required!" }}
   image: "{{ .Values.image.repo }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"

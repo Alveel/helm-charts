@@ -1,6 +1,6 @@
 # keycloak
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 22.0.8](https://img.shields.io/badge/AppVersion-22.0.8-informational?style=flat-square)
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 22.0.8](https://img.shields.io/badge/AppVersion-22.0.8-informational?style=flat-square)
 
 A chart for deploying a Keycloak instance using the Keycloak Operator
 
