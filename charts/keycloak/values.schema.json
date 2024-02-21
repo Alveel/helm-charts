@@ -122,7 +122,10 @@
         "tls": {
             "properties": {
                 "secretName": {
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "manageCert": {
                     "type": "boolean"

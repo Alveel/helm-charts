@@ -1,5 +1,4 @@
 {{ if .Values.tls.manageCert }}
-{{ $secretName := printf "%s-%s" $.Release.Name "cert" }}
 ---
 
 apiVersion: cert-manager.io/v1

@@ -51,17 +51,13 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
-Certificate secretName if manageCert is true
+Certificate secretName
 */}}
 {{- define "keycloak.secretName" -}}
-{{- if .Values.tls.manageCert }}
 {{- if .Values.tls.secretName }}
 {{- .Values.tls.secretName }}
 {{- else }}
 {{- .Release.Name }}-keycloak-cert
-{{- end }}
-{{- else }}
-{{- .Values.tls.secretName }}
 {{- end }}
 {{- end }}
 

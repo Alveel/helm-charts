@@ -55,7 +55,7 @@ instances: 1
 
 # TLS configuration
 tls:
-  # tls.secretName -- The name of the secret to use
+  # tls.secretName -- The name of the secret to use, defaults to $RELEASE_NAME-keycloak-cert
   secretName:
   # tls.manageCert -- Whether to manage the cert using the cert-manager operator
   manageCert: false
@@ -66,3 +66,9 @@ tls:
     kind: ClusterIssuer
   # tls.duration -- How long the certificate is valid if manageCert is true
   duration: "30d"
+
+# Default configuration
+# nameOverride
+nameOverride:
+# fullnameOverride
+fullnameOverride:
