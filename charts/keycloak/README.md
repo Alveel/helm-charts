@@ -1,6 +1,6 @@
 # keycloak
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 22.0.8](https://img.shields.io/badge/AppVersion-22.0.8-informational?style=flat-square)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 22.0.8](https://img.shields.io/badge/AppVersion-22.0.8-informational?style=flat-square)
 
 A chart for deploying a Keycloak instance using the Keycloak Operator
 
@@ -28,7 +28,7 @@ A chart for deploying a Keycloak instance using the Keycloak Operator
 | image.tag | float | `22` | The image tag |
 | instances | int | `1` | How many instances of Keycloak to deploy |
 | nameOverride | string | `nil` |  |
-| tls.duration | string | `"30d"` | How long the certificate is valid if manageCert is true |
+| tls.duration | string | `"2160h"` | How long the certificate is valid if manageCert is true, must be a value with s, m, or h. |
 | tls.issuerRef.kind | string | `"ClusterIssuer"` | What kind of issuer to use |
 | tls.issuerRef.name | string | `nil` | The name of the certificate issuer to use if manageCert is true |
 | tls.manageCert | bool | `false` | Whether to manage the cert using the cert-manager operator |

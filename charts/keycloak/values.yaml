@@ -64,8 +64,8 @@ tls:
     name:
     # tls.issuerRef.kind -- What kind of issuer to use
     kind: ClusterIssuer
-  # tls.duration -- How long the certificate is valid if manageCert is true
-  duration: "30d"
+  # tls.duration -- How long the certificate is valid if manageCert is true, must be a value with s, m, or h.
+  duration: "2160h" # 90 days
 
 # Default configuration
 # nameOverride

@@ -151,7 +151,8 @@
                     ]
                 },
                 "duration": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^\\d+[smh]$"
                 }
             },
             "required": [
