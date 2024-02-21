@@ -111,7 +111,7 @@
                     "type": "string"
                 },
                 "tag": {
-                    "type": "number"
+                    "type": "string"
                 }
             },
             "type": "object"

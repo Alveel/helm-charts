@@ -25,7 +25,7 @@ A chart for deploying a Keycloak instance using the Keycloak Operator
 | hostname.hostname | string | `nil` | Hostname for the Keycloak server, required |
 | image.name | string | `"keycloak/keycloak"` | The name of the image |
 | image.repo | string | `"quay.io"` | The image repository |
-| image.tag | float | `22` | The image tag |
+| image.tag | string | `"22.0"` | The image tag, must be a string |
 | instances | int | `1` | How many instances of Keycloak to deploy |
 | nameOverride | string | `nil` |  |
 | tls.duration | string | `"2160h"` | How long the certificate is valid if manageCert is true, must be a value with s, m, or h. |

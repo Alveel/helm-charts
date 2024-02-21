@@ -47,8 +47,8 @@ image:
   name: keycloak/keycloak
   # image.repo -- The image repository
   repo: quay.io
-  # image.tag -- The image tag
-  tag: 22.0
+  # image.tag -- The image tag, must be a string
+  tag: "22.0"
 
 # instances -- How many instances of Keycloak to deploy
 instances: 1
